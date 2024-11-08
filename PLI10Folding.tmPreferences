@@ -1,15 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <plist version="1.0">
 <dict>
     <key>name</key>
-    <string>Folding Preferences</string>
+    <string>Folding Preferences for PLI10</string>
     <key>scope</key>
     <string>source.pli10</string>
     <key>settings</key>
     <dict>
         <key>foldingStartMarker</key>
-        <string>(ΑΡΧΗ|ΓΙΑ|ΕΑΝ|ΔΙΑΔΙΚΑΣΙΑ)</string>
+        <string>(ΑΡΧΗ|ΓΙΑ|ΕΑΝ|ΔΙΑΔΙΚΑΣΙΑ|ΕΠΑΝΑΛΑΒΕ|ΕΝΟΣΩ)</string>
         <key>foldingStopMarker</key>
-        <string>(ΤΕΛΟΣ|ΓΙΑ-ΤΕΛΟΣ|ΕΑΝ-ΤΕΛΟΣ|ΤΕΛΟΣ-ΔΙΑΔΙΚΑΣΙΑΣ)</string>
+        <string>(ΤΕΛΟΣ|ΓΙΑ-ΤΕΛΟΣ|ΕΑΝ-ΤΕΛΟΣ|ΤΕΛΟΣ-ΔΙΑΔΙΚΑΣΙΑΣ|ΜΕΧΡΙ|ΕΝΟΣΩ-ΤΕΛΟΣ)</string>
     </dict>
 </dict>
 </plist>
