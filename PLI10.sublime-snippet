@@ -1,0 +1,10 @@
+<snippet>
+    <content><![CDATA[
+ΓΙΑ ${1:i}:=1 ΕΩΣ ${2:n} ΕΠΑΝΑΛΑΒΕ
+    ${3:/* code */};
+ΓΙΑ-ΤΕΛΟΣ
+]]></content>
+    <tabTrigger>forpli10</tabTrigger>
+    <scope>source.pli10</scope>
+    <description>For Loop in PLI10</description>
+</snippet>

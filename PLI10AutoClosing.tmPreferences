@@ -1,0 +1,29 @@
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Auto Closing Preferences</string>
+    <key>scope</key>
+    <string>source.pli10</string>
+    <key>settings</key>
+    <dict>
+        <key>auto_complete</key>
+        <true/>
+        
+        <key>autoClosingPairs</key>
+        <array>
+            <string>(|)</string>
+            <string>[|]</string>
+            <string>{|}</string>
+            <string>"|"</string>
+        </array>
+        
+        <key>smartTypingPairs</key>
+        <array>
+            <string>(|)</string>
+            <string>[|]</string>
+            <string>{|}</string>
+            <string>"|"</string>
+        </array>
+    </dict>
+</dict>
+</plist

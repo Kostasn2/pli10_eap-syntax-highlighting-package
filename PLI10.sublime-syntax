@@ -1,0 +1,70 @@
+%YAML 1.2
+---
+name: PLI10
+file_extensions:
+  - eap
+scope: source.pli10
+
+contexts:
+  main:
+    # Keywords
+    - match: '\b(ΣΤΑΘΕΡΕΣ|ΔΕΔΟΜΕΝΑ|ΑΡΧΗ|ΤΕΛΟΣ|ΕΑΝ|ΤΟΤΕ|ΑΛΛΙΩΣ|ΓΙΑ|ΕΩΣ|ΜΕ|ΒΗΜΑ|ΕΠΑΝΑΛΑΒΕ|ΕΝΟΣΩ|ΜΕΧΡΙ|ARRAY|OF|ΤΥΠΟΙ|ΤΥΠΩΣΕ|ΔΙΑΒΑΣΕ|ΥΠΟΛΟΓΙΣΕ|ΔΙΑΔΙΚΑΣΙΑΣ|ΣΥΝΑΡΤΗΣΗΣ|ΔΙΕΠΑΦΗ|ΕΙΣΟΔΟΣ|ΕΞΟΔΟΣ|MOD|DIV|AND|OR|EOLN)\b'
+      scope: keyword.control.pli10
+
+    # Data types
+    - match: '\b(INTEGER|REAL|BOOLEAN)\b'
+      scope: storage.type.pli10
+
+    # Function names
+    - match: '\b(SQRT|LOG|ABS|FLOOR|SIN|COS|POW)\b'
+      scope: support.function.pli10
+
+    # Numbers (integer literals)
+    - match: '\b\d+\b'
+      scope: constant.numeric.pli10
+
+    # Strings (strings enclosed in parentheses for output)
+    - match: '\b(TΥΠΩΣΕ|EOLN)\b'
+      scope: entity.name.function.pli10
+
+
+    - match: '\b([a-zA-Z_][a-zA-Z_0-9]*)\b'
+      scope: variable.other.pli10
+
+    # Operators
+    - match: '\+|-|\*|/|=|:=|<|>|<=|>=|<>|\(|\)|;|,|:|&'
+      scope: keyword.operator.pli10
+
+      # Delimiters (array indices and parentheses)
+    - match: '\[|\]|\(|\)'
+      scope: punctuation.definition.array.pli10
+
+    # Numbers (integer and real numbers)
+    - match: '\b\d+(\.\d+)?\b'
+      scope: constant.numeric.pli10
+
+    # Block comments (inside curly braces)
+    - match: '\{'
+      scope: punctuation.definition.comment.begin.pli10
+      push: block_comment
+
+    # Strings (double-quoted strings)
+    - match: '"'
+      scope: punctuation.definition.string.begin.pli10
+      push: double_quoted_string
+
+  # Block comments (inside curly braces)
+  block_comment:
+    - meta_scope: comment.block.pli10
+    - match: '\}'
+      scope: punctuation.definition.comment.end.pli10
+      pop: true
+
+  # Double quoted strings
+  double_quoted_string:
+    - meta_scope: string.quoted.double.pli10
+    - match: '\\.'  # Matches escape sequences like \n, \t
+      scope: constant.character.escape.pli10
+    - match: '"'
+      scope: punctuation.definition.string.end.pli10
+      pop: true

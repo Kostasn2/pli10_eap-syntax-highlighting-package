@@ -1,0 +1,15 @@
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Symbol List Preferences</string>
+    <key>scope</key>
+    <string>source.pli10</string>
+    <key>settings</key>
+    <dict>
+        <key>showInSymbolList</key>
+        <string>1</string>
+        <key>symbolTransformation</key>
+        <string>s/^(ΔΙΑΔΙΚΑΣΙΑ|ΣΤΑΘΕΡΕΣ|ΤΥΠΟΙ)\\s+(\\w+).*/$2/</string>
+    </dict>
+</dict>
+</plist>

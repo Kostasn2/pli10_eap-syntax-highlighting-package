@@ -1,0 +1,24 @@
+<plist version="1.0">
+<dict>
+    <key>name</key>
+    <string>Comment Preferences</string>
+    <key>scope</key>
+    <string>source.pli10</string>
+    <key>settings</key>
+    <dict>
+        <key>shellVariables</key>
+        <array>
+            <dict>
+                <key>name</key>
+                <string>TM_COMMENT_START</string>
+                <string>/* </string>
+            </dict>
+            <dict>
+                <key>name</key>
+                <string>TM_COMMENT_END</string>
+                <string> */</string>
+            </dict>
+        </array>
+    </dict>
+</dict>
+</plist>
