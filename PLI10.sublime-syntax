@@ -9,6 +9,8 @@ contexts:
   main:
 
       # Match comments (multi-line comments)
+      # Comments are first here cause i want them to take
+      # priority.
     - match: '/\*'
       push:
         - meta_scope: comment.block.pli10
