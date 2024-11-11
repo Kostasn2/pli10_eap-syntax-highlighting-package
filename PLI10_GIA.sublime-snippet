@@ -1,0 +1,10 @@
+<snippet>
+    <content><![CDATA[
+ΓΙΑ ${1:(i}:=1) ΕΩΣ ${2:(condition)} ΕΠΑΝΑΛΑΒΕ
+    ${3:/* code */}
+ΓΙΑ-ΤΕΛΟΣ
+]]></content>
+    <tabTrigger>gia_pli10</tabTrigger>
+    <scope>source.pli10</scope>
+    <description>Gia Loop in PLI10</description>
+</snippet>

@@ -1,0 +1,10 @@
+<snippet>
+    <content><![CDATA[
+ΕΝΟΣΩ ${1:(i}:=1) ΕΠΑΝΑΛΑΒΕ
+    ${2:/* code */}
+ΕΝΟΣΩ-ΤΕΛΟΣ
+]]></content>
+    <tabTrigger>enoso_pli10</tabTrigger>
+    <scope>source.pli10</scope>
+    <description>Enoso Loop in PLI10</description>
+</snippet>

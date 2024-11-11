@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plist version="1.0">
-<dict>
-    <key>name</key>
-    <string>Symbol List for PLI10</string>
-    <key>scope</key>
-    <string>source.pli10</string>
-    <key>settings</key>
     <dict>
-        <key>showInSymbolList</key>
-        <true/>
-        <key>symbolTransformation</key>
-        <string>s/^(ΔΙΑΔΙΚΑΣΙΑ|ΣΤΑΘΕΡΕΣ|ΤΥΠΟΙ)\\s+(\\w+).*/$2/</string>
+        <key>name</key>
+        <string>Symbol List Preferences for PLI10</string>
+        <key>scope</key>
+        <string>source.pli10</string>
+        <key>settings</key>
+        <dict>
+            <key>showInSymbolList</key>
+            <true/>
+            <key>symbolTransformation</key>
+            <string>s/^(ΔΙΑΔΙΚΑΣΙΑ|ΣΤΑΘΕΡΕΣ|ΤΥΠΟΙ|ΣΥΝΑΡΤΗΣΗ|ΔΕΔΟΜΕΝΑ)\\s+(\\w+).*/$2/</string>
+        </dict>
     </dict>
-</dict>
 </plist>

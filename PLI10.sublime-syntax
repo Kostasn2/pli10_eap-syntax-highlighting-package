@@ -7,67 +7,138 @@ scope: source.pli10
 
 contexts:
   main:
-    # Keywords
+
+      # Match comments (multi-line comments)
+    - match: '/\*'
+      push:
+        - meta_scope: comment.block.pli10
+        - match: '\*/'
+          pop: true
+        - match: '[^*]*'
+          scope: comment.block.pli10
+
+      # Match strings
+    - match: '"([^"\\]|\\.)*?"'
+      scope: string.quoted.double.pli10
+
+
+      # Main keywords
     - match: '\b(ΑΛΓΟΡΙΘΜΟΣ|ΣΤΑΘΕΡΕΣ|ΔΕΔΟΜΕΝΑ|ΣΥΝΑΡΤΗΣΗ|ΔΙΑΔΙΚΑΣΙΑ|ΑΡΧΗ|ΤΕΛΟΣ|ARRAY|OF|ΤΥΠΟΙ|ΥΠΟΛΟΓΙΣΕ|ΔΙΑΔΙΚΑΣΙΑΣ|ΣΥΝΑΡΤΗΣΗΣ|ΔΙΕΠΑΦΗ|ΕΙΣΟΔΟΣ|ΕΞΟΔΟΣ)\b'
       scope: keyword.control.pli10
 
     - match: '\b(ΕΑΝ|ΤΟΤΕ|ΑΛΛΙΩΣ|ΓΙΑ|ΕΩΣ|ΜΕ|ΒΗΜΑ|ΕΠΑΝΑΛΑΒΕ|ΕΝΟΣΩ|ΜΕΧΡΙ)\b'
-      scope: keyword.control.conditional.pli10
+      scope: keyword.control.flow.conditional.pli10
 
-    - match: '\b(ΓΙΑ|ΕΩΣ|ΜΕ|ΒΗΜΑ|ΕΠΑΝΑΛΑΒΕ|ΕΝΟΣΩ|ΜΕΧΡΙ)\b'
-      scope: keyword.control.pli10
 
-    # Data types
+      # Operators
+    - match: '\b(MOD|DIV|AND|OR|NOT)\b'
+      scope: keyword.operator.pli10
+
+    - match: '(\+|-|\*|/|=|:=|<|>|<=|>=|<>|;|,|:|&)'
+      scope: keyword.operator.pli10
+
+
+    # \s -> space, \b -> word boundary, ?<= -> look behind
+    # - match: '(?<=\s|\b)(\+|-|\*|/|=|:=|<|>|<=|>=|<>|;|,|:|&)(?=\s|\b)'
+    #   scope: keyword.operator.pli10
+
+    - match: '\b(ΔΙΑΒΑΣΕ|ΕΚΤΥΠΩΣΕ|ΤΥΠΩΣΕ|EOLN)\b'
+      scope: support.function.builtin.pli10
+
+    - match: '\b(SQRT|LOG|ABS|FLOOR|SIN|COS|POW)\b'
+      scope:  entity.name.function.pli10
+
+
+      # Storage type variables
     - match: '\b(INTEGER|REAL|BOOLEAN|CHAR|STRING|POINTER)\b'
       scope: storage.type.pli10
 
-    # Function names
-    - match: '\b(SQRT|LOG|ABS|FLOOR|SIN|COS|POW)\b'
-      scope: entity.name.function.pli10
 
-    #Strings (strings enclosed in parentheses for output)
-    - match: '\b(ΔΙΑΒΑΣΕ|ΕΚΤΥΠΩΣΕ|TΥΠΩΣΕ|EOLN)\b'
-      scope: support.function.pli10
+      # Boolean Keywords
+    - match: '\b(TRUE|FALSE)\b'
+      scope: constant.language.boolean.pli10
 
+    - match: '\b(ΣΩΣΤΟ|ΛΑΘΟΣ)\b'
+      scope: constant.language.boolean.pli10
 
-    - match: '\b([a-zA-Z_][a-zA-Z_0-9]*)\b'
-      scope: variable.other.pli10
+    - match: '\b(ΑΛΗΘΗΣ|ΨΕΥΔΗΣ)\b'
+      scope: constant.language.boolean.pli10
 
-    # Operators
-    - match: '\+|-|\*|/|=|:=|<|>|<=|>=|<>|;|,|:|&|MOD|DIV|AND|OR|NOT'
-      scope: keyword.operator.pli10
-
-    #Delimiters (array indices and parentheses)
-    - match: '\[|\]|\(|\)|\{|\}'
-      scope: punctuation.definition.array.pli10
 
     # Numbers (integer and real numbers)
     - match: '\b\d+(\.\d+)?\b'
       scope: constant.numeric.pli10
 
 
-    # Strings (double-quoted strings)
+
+    # Match variables (use a regular expression for better flexibility)
+    - match: /\b[a-zA-Z_][a-zA-Z0-9_]*\b/
+      scope: variable.other.pli10
+
+
+
+
+    # Invalid brackets if there are alone
+    - match: \(
+      push: brackets
+      scope: punctuation.section.group.begin
+    - match: \)
+      scope: invalid.illegal.stray-bracket-end
+
+    - match: \[
+      push: brackets
+    - match: \]
+      scope: invalid.illegal.stray-bracket-end
+
+    - match: \{
+      push: brackets
+    - match: \}
+      scope: invalid.illegal.stray-bracket-end
+
+
+
+
+    # Match parentheses, square brackets, and curly brackets
+    #- match: '[\[\]{}()]'
+    - match: '[\[\]\(\)\{\}]'
+      scope: punctuation.section.pli10
+
+
+
+  # Special handling for strings and comments and brackets
+
+  string:
     - match: '"'
       scope: punctuation.definition.string.begin.pli10
-      push: double_quoted_string
+      push:
+        - meta_scope: string.quoted.double.pli10
+        - match: '"'
+          scope: punctuation.definition.string.end.pli10
+          pop: true
+        - match: '\\.'
+          scope: constant.character.escape.pli10
+        - match: '[^"\\]+'
+          scope: string.quoted.double.pli10
 
-  # Double quoted strings context
-  double_quoted_string:
-    - meta_scope: string.quoted.double.pli10
-    - match: '\\.'  # Matches escape sequences like \n, \t
-      scope: constant.character.escape.pli10
-    - match: '"'
-      scope: punctuation.definition.string.end.pli10
+
+
+  comment:
+    - match: '/\*'
+      scope: punctuation.definition.comment.begin.pli10
+      push:
+        - match: '\*/'
+          scope: punctuation.definition.comment.end.pli10
+          pop: true
+        - match: '[^*]*'
+          scope: comment.block.pli10
+
+
+
+  brackets:
+    - match: \)
       pop: true
-
-
-  # Block comments (using /* */)
-  - match: '/\*'
-    scope: punctuation.definition.comment.begin.pli10
-    push: block_comment
-
-  block_comment:
-    - meta_scope: comment.block.pli10
-    - match: '\*/'
-      scope: punctuation.definition.comment.end.pli10
+    - match: \]
       pop: true
+    - match: \}
+      pop: true
+    - include: main

@@ -1,0 +1,12 @@
+<snippet>
+    <content><![CDATA[
+ΕΑΝ ${1:(i}:=1) ΤΟΤΕ
+    ${2:/* code */}
+    ΑΛΛΙΩΣ
+        ${3:/* code */}
+ΕΑΝ-ΤΕΛΟΣ
+]]></content>
+    <tabTrigger>ean_pli10</tabTrigger>
+    <scope>source.pli10</scope>
+    <description>Ean Condition in PLI10</description>
+</snippet>

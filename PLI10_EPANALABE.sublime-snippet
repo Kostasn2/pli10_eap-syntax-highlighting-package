@@ -1,0 +1,10 @@
+<snippet>
+    <content><![CDATA[
+ΕΠΑΝΑΛΑΒΕ 
+    ${1:/* code */};
+ΜΕΧΡΙ ${2:(conditon)}
+]]></content>
+    <tabTrigger>epanalabe_pli10</tabTrigger>
+    <scope>source.pli10</scope>
+    <description>Epanalabe Loop in PLI10</description>
+</snippet>

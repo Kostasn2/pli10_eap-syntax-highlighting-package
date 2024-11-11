@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plist version="1.0">
-  <dict>
-    <key>name</key>
-    <string>Language Preferences for PLI10</string>
-    <key>scope</key>
-    <string>source.pli10</string>
-    <key>settings</key>
     <dict>
-        <key>tabSize</key>
-        <integer>4</integer>
-        <key>translateTabsToSpaces</key>
-        <true/>
-        
-        <!-- Indentation settings -->
-        <key>increaseIndentPattern</key>
-        <string>^\s*(ΑΡΧΗ|ΓΙΑ|ΕΑΝ|ΕΠΑΝΑΛΑΒΕ|ΕΝΟΣΩ|ΔΙΑΔΙΚΑΣΙΑ)</string>
-        <key>decreaseIndentPattern</key>
-        <string>^\s*ΤΕΛΟΣ(-ΔΙΑΔΙΚΑΣΙΑΣ)?</string>
+        <key>name</key>
+        <string>Language Preferences for PLI10</string>
+        <key>scope</key>
+        <string>source.pli10</string>
+        <key>settings</key>
+        <dict>
+            <key>tabSize</key>
+            <integer>4</integer>
+            <key>translateTabsToSpaces</key>
+            <true/>
+
+            <!-- Indentation settings -->
+            <key>increaseIndentPattern</key>
+            <string>^\s*(ΑΡΧΗ|ΓΙΑ|ΕΑΝ|ΕΠΑΝΑΛΑΒΕ|ΕΝΟΣΩ|ΔΙΑΔΙΚΑΣΙΑ)</string>
+            <key>decreaseIndentPattern</key>
+            <string>^\s*ΤΕΛΟΣ(-ΔΙΑΔΙΚΑΣΙΑΣ)?</string>
+        </dict>
     </dict>
-  </dict>
 </plist>
