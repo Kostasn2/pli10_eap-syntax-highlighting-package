@@ -4,7 +4,7 @@
     ${3:/* code */}
 ΓΙΑ-ΤΕΛΟΣ
 ]]></content>
-    <tabTrigger>gia_pli10</tabTrigger>
+    <tabTrigger>gia</tabTrigger>
     <scope>source.pli10</scope>
     <description>Gia Loop in PLI10</description>
 </snippet>

@@ -6,7 +6,7 @@
         ${3:/* code */}
 ΕΑΝ-ΤΕΛΟΣ
 ]]></content>
-    <tabTrigger>ean_pli10</tabTrigger>
+    <tabTrigger>ean</tabTrigger>
     <scope>source.pli10</scope>
     <description>Ean Condition in PLI10</description>
 </snippet>
