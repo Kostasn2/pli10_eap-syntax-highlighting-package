@@ -8,3 +8,8 @@ This syntax highlighter will allow PLI10 code to appear nicely in Sublime Text, 
 In addition this language has its own compiler given to the students by the EAP University.
 
 Installation Instructions: Please check the Wiki!
+
+## License
+
+Copyright (C) 2026 Kostasn2
+Licensed under the [GPLv3]. See LICENSE file for details.
