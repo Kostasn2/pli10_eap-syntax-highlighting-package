@@ -7,9 +7,9 @@ The purpose of this pseudo-language is for teaching and learn programming logic 
 This syntax highlighter will allow PLI10 code to appear nicely in Sublime Text, making your coding experience quite nice.
 In addition this language has its own compiler given to the students by the EAP University.
 
-Installation Instructions: Please check the [Wiki](https://github.com/Kostasn2/pli10_eap-syntax-highlighting-package/wiki)
+Installation Instructions: Please check the [Wiki](https://github.com/Kostasn2/pli10_eap-syntax-highlighting-package/wiki)!
 
 ## License
 
+Licensed under the [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html). See [License](LICENSE) file for details.
 Copyright (C) 2026 Kostasn2
-Licensed under the [GPLv3]. See LICENSE file for details.
